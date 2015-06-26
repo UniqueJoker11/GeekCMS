@@ -1,0 +1,432 @@
+@charset "utf-8";
+
+#logo {
+	color: #FFF;
+	width: 180px;
+	height: 55px;
+	font-size: 38px;
+	font-family: "Times New Roman", Times, serif;
+	height: 55px;
+	text-align: center;
+}
+
+/* 加载时的遮挡 */
+.loading_panel {
+	background: #000;
+	position: absolute;
+	z-index: 10000;
+	right: 0;
+	left: 0px;
+	top: 0px;
+	bottom: 0;
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	display: none;
+}
+
+.headBackground {
+	box-shadow: inset -5px -5px -8px #000;
+}
+
+
+/* 导航文字阴影效果 */
+.font_shadow {
+	text-shadow: 1px 1px 2px #000;
+}
+
+/* SEO输入框 */
+.input_for_seo{ width:550px !important;}
+
+/* 输入框样式 */
+.input_for_add {
+	width: 280px;
+	height: 30px;
+	padding: 0px 5px;
+	border-width: 1px;
+	border-left: 4px solid #4F4F4F;
+}
+
+.select_for_add {
+	width: 296px;
+	height: 32px;
+	border-width: 1px;
+	border-left-width: 4px;
+	border-style: solid;
+}
+
+.textarea_for_add {
+	width: 280px;
+	height: 120px;
+	line-height: 25px;
+	padding: 5px 5px;
+	border-width: 1px;
+	border-left-width: 4px;
+	border-style: solid;
+}
+
+.table_list thead tr th { /*标题*/
+	text-align: left;
+}
+
+.table_list tbody tr th { /*项目列表*/
+	text-align: center;
+	background: #F0F0F0; /*f7f7f7*/
+	color: #000;
+}
+
+.table_list th,table td { /*单元格 */
+	border: 0px solid #ccc;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+}
+
+/* 添加信息table样式 */
+.table_add {
+	border: 0px !important;
+}
+
+.table_add thead tr th {
+	text-align: center;
+}
+
+.table_add tbody tr {
+	height: 35px;
+}
+
+.table_add tbody tr th {
+	text-align: right;
+}
+
+/* 添加信息table样式 */
+.table_add2 {
+	border: 0px !important;
+}
+
+.table_add2 tbody tr {
+	height: 50px;
+}
+
+.table_add2 tbody tr th {
+	text-align: left;
+}
+
+.table_add2 th,table td { /*单元格 */
+	border: 0px solid #ccc;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+}
+
+.label_for_userstatus {
+	cursor: pointer;
+	color: blue;
+}
+
+/* 信息table样式 */
+.table_info {
+	
+}
+
+.table_info thead tr th {
+	text-align: center;
+}
+
+.table_info tbody tr {
+	height: 25px;
+}
+
+.table_info tbody tr th {
+	text-align: right;
+}
+
+/* div表格样式 */
+.yl_bigbox {
+	border: 1px solid #ccc;
+}
+
+.yl_address_bar {
+	height: 30px;
+	background: #FFC;
+	line-height: 25px;
+	border-bottom: 1px solid #ccc;
+	padding: 0 10px;
+}
+
+#yl_file_path {
+	height: 20px !important;
+}
+
+.yl_bigbox_content {
+	margin: 5px;
+}
+
+.yl_title_bar {
+	padding-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	text-align: left;
+	color: white;
+	background: url(nav_bg.png) repeat-x;
+}
+
+/* 列表 */
+.table_for_list thead tr th { /*项目列表*/
+	
+} 
+.table_for_list tbody tr th {
+	
+} 
+.table_for_list tbody tr {
+	height: 28px;
+	border: 1px solid #e5e5e5;
+}
+
+.table_for_list tbody tr td { /*单元格 */
+	border: 0px solid #ccc;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 5px;
+	text-align: center
+}
+.table_for_list i{ font-size: 16px;}
+/* 表格数据焦点效果 */
+.table_for_list tbody tr:hover {
+	background: #fbfbfb;
+}
+
+/* 添加 */
+.table_for_add {
+	border: 0 !important;
+}
+
+.table_for_add tbody tr {
+	
+}
+
+.table_for_add tbody tr th {
+	text-align: left;
+	width: 140px !important;
+}
+
+.table_for_add th,table td { /*单元格 */
+	border: 0px solid #ccc;
+	padding: 7px 5px;
+	text-align: left;
+}
+
+/* 全屏登录面板 */
+#bigPanel {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+#loginContent {
+	width: 450px;
+	top: 50%;
+	left: 50%;
+	margin-top: -53px;
+	margin-left: -225px;
+}
+
+.table_for_login {
+	width: 320px;
+}
+
+.table_for_login tr th {
+	font-size: 20px;
+	padding: 10px 0;
+	font-weight: bold;
+	text-shadow: 1px 1px #272822;
+}
+
+.table_for_login tr td {
+	padding: 10px 0;
+}
+
+.input_for_login {
+	height: 30px;
+	line-height: 30px;
+	width: 230px;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+.button_for_login {
+	width: 120px;
+	height: 86px;
+	font-weight: bold;
+	font-size: 24px;
+	margin-top: 10px;
+}
+
+.login_for_message {
+	height: 250px;
+	top: 50%;
+	margin-top: -125px;
+	left: 0;
+	right: 0;
+	display: none;
+}
+
+.login_for_message_tishi {
+	height: 250px;
+	top: 50%;
+	margin-top: -125px;
+	left: 0;
+	right: 0;
+	display: none;
+	z-index: 100;
+}
+
+.login_for_messageContent {
+	width: 400px;
+	height: 210px;
+	margin: 20px auto;
+}
+
+.login_for_code {
+	margin: 0 auto;
+	width: 100px;
+}
+
+.login_for_content {
+	margin: 0 auto;
+	width: 240px;
+}
+
+.login_for_content_tishi {
+	margin: 0 auto;
+	width: 240px;
+}
+
+.login_for_button {
+	bottom: 10px;
+	right: 10px;
+}
+
+/* dialog */
+.dialog {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000000;
+}
+
+.dialogFullScreen {
+	background: #000;
+	position: absolute;
+	z-index: 10000;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	filter: alpha(opacity = 30);
+	-moz-opacity: 0.3;
+	-khtml-opacity: 0.3;
+	opacity: 0.3;
+}
+
+.dialogContent {
+	position: absolute;
+	height: 250px;
+	top: 50%;
+	margin-top: -125px;
+	left: 0;
+	right: 0;
+	z-index: 101;
+	z-index: 10000;
+}
+
+.dialogPanel {
+	position: absolute;
+	left: 50%;
+	margin-left: -225px;
+	top: 20px;
+	bottom: 20px;
+	width: 450px;
+	z-index: 10000;
+}
+
+.dialogPanel h1 {
+	text-shadow: 1px 1px #272822;
+}
+
+.dialogPanelContent {
+	width: 430px;
+	font-size: 20px;
+	z-index: 10000;
+	text-shadow: 1px 1px #272822;
+}
+
+.dialogButton {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 10000;
+}
+
+/* 消息dialog */
+.showMessageDialogPanel {
+	padding: 10px;
+	height: 130px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/* 确定 dialog */
+.showConfirmDialogPanel {
+	padding: 10px;
+	height: 130px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/* 输入 dialog */
+.showInputDialogPanel {
+	padding: 10px;
+}
+
+.showInputDialogInput {
+	padding: 10px;
+	width: 430px;
+	position: absolute;
+	bottom: 30px;
+	ime-mode: disabled
+}
+
+.loading_model{
+	position: absolute;
+	z-index: 10000;
+	right: 0;
+	left: 0px;
+	top: 0px;
+	bottom: 0;
+	
+	
+}
+.clear_zone{
+	position: absolute;
+	z-index: 10000;
+	right: 0;
+	left: 0px;
+	top: 0px;
+	bottom: 0;
+	background: #000;
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5; 
+	
+}
+.loading_info{
+	position: absolute; bottom:30px; left:20px; height:30px; font-size: 20px; color:white;z-index: 10003;
+}

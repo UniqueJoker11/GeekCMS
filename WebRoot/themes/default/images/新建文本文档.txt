@@ -1,0 +1,3 @@
+		<!--{if:${channel.id == current.id}}-->
+			<li class="index"><a href="${channel.url}">${channel.name}</a></li>
+		<!--{/if}-->

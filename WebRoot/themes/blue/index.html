@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>${config.title}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="${current.keywords}" >
+	<meta name="description" content="${current.description}">
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/5icool.org.js"></script>
+	<link href="css/main.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/5icool.org.css" />
+</head>
+<body background="images/03.jpg">
+
+<!--#include file="header.html"-->
+
+
+<div id="banner" class="pt10"> 
+	<div class="center max_width">
+ 		${plugin("slidebanner","show")}
+    </div>
+   	<div class="product_info">
+   		<div class="info_inner"> 
+            <div class="product_show">
+            	
+            </div>
+            <div class="download_weizhi">
+            	<a target="_blank" href="http://pan.baidu.com/share/link?shareid=1633017327&uk=3809201496"><div class="btn_download">立即下载</div> </a>
+            </div>
+            <div class="download_info">
+            	<p>版本信息: mushroomcms V1.0</p>
+                <p>软件大小: 21 MB </p>
+                <p>软件架构: Spring+core+model+plugin</p>
+                <p>更新时间: 2013年08月25日</p>
+                <p class="fr"><a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=c7753c092038112c27d0a11d7deb5b5df6828e92cef3c2b75abe83c951372816"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="MRCMS" title="MRCMS"></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="cb"></div>
+</div>
+
+ 
+
+<div class="nav_info center max_width" >
+	<div class="nav_inner">最新信息: </div>
+    <div class="nav_content">
+    	${chip.notice!}
+    </div>
+</div>
+
+<div class="center max_width">
+    <div class="box_690 fl">
+    	<div class="title">
+        	<div class="title_text">产品特点</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">
+            	<div class="minbox fl">
+                	<div>简单性</div>
+                </div>
+                <div class="minbox fl">
+                	<div>高性能</div>
+                </div>
+                <div class="minbox fl">
+                	<div>模板化</div>
+                </div>
+                <div class="minbox fl">
+                	<div>可视化</div>
+                </div>
+             	
+               	<div class="minbox fl">
+                	<div>高速缓存</div>
+                </div>
+                 <div class="minbox fl">
+                	<div>可扩展性</div>
+                </div>
+                <div class="minbox fl">
+                	<div>详细文档</div>
+                </div>
+                <div class="minbox fl">
+                	<div>BBS讨论</div>
+                </div>
+                <div class="cb"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="box_280 fr">
+    	<div class="title">
+        	<div class="title_text">赞助商</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner"> 
+            ${chip.zanzhu!}
+            </div>
+        </div>
+    </div>
+	<div class="cb"></div>
+</div>
+ 
+
+<div class="nav_info center max_width">
+	<div class="nav_inner">建站工具: </div>
+    <div class="nav_content">
+    	<ul>
+        	<li><a href="">疯狂信息采集器</a></li>
+            <li><a href="">SEO优化查询器</a></li>
+            <li><a href="">YLCMS在线帮助文档</a></li>
+            <li><a href="">网站模版下载中心</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="center max_width">
+	<div class="box_340 fl">
+    	<div class="title">
+        	<div class="title_text">行业资讯</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">
+                <ul>
+                <!-- {article:list table=(article) pid=(74) limit=(10) order=(id desc)} --> 
+					<li><a href="${article.url}">${article.title length=(19)} <span class="fr">${article.time format=(MM-dd)}</span></a> </li>
+				<!-- {/list} -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+	<div class="box_340 fl" style="margin-left:10px;">
+    	<div class="title">
+        	<div class="title_text">帮助文档</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">
+                <ul>
+                <!-- {article:list table=(article) pid=(13) limit=(10) order=(id desc)} --> 
+					<li><a href="${article.url}">${article.title length=(15)} <span class="fr">${article.time format=(MM-dd)}</span></a> </li>
+				<!-- {/list} -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ 	<div class="box_280 fr">
+    	<div class="title">
+        	<div class="title_text">常见问题</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">
+                <ul>
+                <!-- {article:list table=(article) pid=(73) limit=(10) order=(id desc)} --> 
+					<li><a href="${article.url}">${article.title length=(15)}</a></li>
+				<!-- {/list} -->
+                </ul>
+            </div>
+        </div>
+    </div>
+	<div class="cb"></div>
+</div>
+
+<div id="successcase" class="center">
+    <div class="box_690 fl">
+    	<div class="title">
+        	<div class="title_text">成功案例</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">
+            	 暂时没有成功案例
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box_280 fr">
+    	<div class="title">
+        	<div class="title_text">贡献蘑菇粉</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner"> 
+            ${chip.zanzhu!}
+            </div>
+        </div>
+    </div>
+	<div class="cb"></div>
+</div>
+
+
+
+
+
+<div id="flinks">
+    <div class="box_for_maxwidth">
+        <div class="title">
+            <div class="title_text">友情链接</div>
+        </div>
+        <div class="content">
+            <div class="content_innner">
+               ${plugin("flink","show")}
+               <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--#include file="footer.html"-->
+</body>
+</html>

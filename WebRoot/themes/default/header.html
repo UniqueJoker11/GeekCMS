@@ -1,0 +1,17 @@
+<div id="header">
+	<div style="height:100px; width:980px; line-height: 80px;" class="center">
+		<div><img src="images/logo.gif" alt="${config.title}" /></div>
+	</div>
+	<div id="nav" class="center">
+		<ul>
+		<!-- {list:var=(channel) items=(channels) table=(channel) pid=(0) page=(1) limit=(10)} -->
+			<!--{if:${channel.id == current.id}}-->
+			<li class="index"><a href="${channel.url}">${channel.name}</a></li>
+			<!--{/if}-->
+			<!--{if:${channel.id != current.id}}-->
+			<li><a href="${channel.url}">${channel.name}</a></li>
+			<!--{/if}-->
+		<!-- {/list} -->
+		</ul>
+	</div>
+</div>

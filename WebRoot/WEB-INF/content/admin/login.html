@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title><@spring.message "admin.system.title"/></title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css" >
+    <link rel="stylesheet" type="text/css" href="css/animation.css" >
+    <script type="text/javascript" src="${url}/public/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+</head>
+
+<body>
+ 	<div id="bigPanel" class="pa loginPanelBackground">
+    	<div id="loginContent" class="pa" style="z-index:1000;">
+        	<div style="position: absolute; top:-100px; width:420px; color:white;">
+        		<img src="images/logo.png"  /><div class="fr">专业成就品质!</div>
+	        </div>
+ 			<div>
+	        	<table class="table_for_login fl">
+	                <tr>
+	                    <th width="60">帐号</th>
+	                    <td><input class="input_for_login" id="username" /></td>
+	                </tr>
+	                <tr>
+	                    <th>密码</th>
+	                    <td><input class="input_for_login" id="password" type="password" onkeyup="onkeyupforcontinueLogin(event);"/></td>
+	                </tr>
+	    		</table>
+	    		<button id="btn_for_login" class="button_for_login fr" onClick="continueLogin()">登 录</button>
+        	</div>
+        </div>
+        <div class="login_bg_dot pa"></div>
+        
+        
+    </div>
+  	
+  	
+  	
+    
+</body>
+</html>
+<script type="text/javascript">
+/* 按下回车继续登录下一步 */
+function onkeyupforcontinueLogin(event){
+ 	var keycode = event.keyCode;  
+ 	if(keycode == 13){//回车
+ 		continueLogin();
+ 	}
+}
+
+
+
+/* 显示验证码 */
+function continueLogin(){
+	var username = $("#username").val();
+	var password = $("#password").val();
+	//验证输入并提示错误信息
+	if(username == ""){
+		zoom.showMessageDialog("用户名不能为空哦!","消息提示",1500);
+		$("#username").focus();
+		return;
+	}
+	if(password == ""){
+		zoom.showMessageDialog("密码不能为空哦!","消息提示",1500);
+		$("#password").focus();
+		return;
+	}
+	zoom.showInputDialog("<img id=\"code\" onClick=\"$('#code').attr('src','../SecurityCode?r='+Math.random())\" src=\"../SecurityCode?r="+Math.random()+"\" style=\"height:40px;\" />","验证码", function(){
+		var randcode = $("#showInputDialogInput").val();
+		submitLogin(randcode);
+	});
+}
+
+/* 立即登录 */
+function submitLogin(randcode){
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var action = "loginSystem.do";
+	var params  = "username="+username+"&password="+password+"&randcode="+randcode+"&r=" + Math.random();
+ 	
+	$.ajax({
+		url: action,
+		type:"post",
+		dataType:"json",
+		data: params,
+		success: function(json){
+			if(json.status == true){
+				location.href = "index.do";
+			}else{
+				zoom.closeInputDialog();
+				zoom.showMessageDialog(json['message'],"消息提示",2500);
+				$("btn_for_login").focus();
+			}
+		}
+	});
+}
+
+
+//设置焦点
+$("#username").focus();
+</script>
+
+

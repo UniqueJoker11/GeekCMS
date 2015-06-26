@@ -1,0 +1,51 @@
+<div class="content">
+	<div class="tab_bar">
+		<ul>
+			<li class="tab_index" onclick="setTabContent(this);">服务管理</li>
+		</ul>
+	</div>
+	<div class="tab_content">
+		<div class="tab_item tab_show"> 
+			<table class="table_for_list">
+				<thead>
+				<tr>
+			        <th>服务名称</th>
+			        <th>作者</th>
+			        <th>版本</th>
+			        <th>描述</th>
+			        <th>状态</th>
+			        <th width="100">操作</th>
+			      </tr>
+				</thead>
+			    <tbody>
+			      
+				  <#list bundles as x>
+					<tr>
+				        <td>${x.name!}</td>
+				        <td class="tac">${x.vendor!}</td>
+				        <td class="tac">${x.version!} </td>
+				        <td>${x.description!} </td>
+				        <td class="tac">
+					        <#switch x.state> 
+								<#case 1>UNINSTALLED<#break> 
+								<#case 2>INSTALLED<#break>  
+								<#case 4>RESOLVED<#break> 
+								<#case 20>ACTIVE<#break> 
+								<#case 10>STOPPING<#break> 
+								<#case 8>STARTING<#break> 
+								<#default>运行中 <#break>
+							</#switch>
+				       	</td>
+				        <td>
+				        <#if x.id != 0 >
+					        <a href="#" action="bundle/start.do?id=${x.id?c}" onclick="refreshContentByElement(this);">启动</a>
+					        <a href="#" action="bundle/stop.do?id=${x.id?c}" onclick="refreshContentByElement(this);">停止</a>
+					        <a href="#" action="bundle/uninstall.do?id=${x.id?c}" onclick="refreshContentByElement(this);">卸载</a>
+				    	</#if>
+				    </tr>
+				  </#list>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

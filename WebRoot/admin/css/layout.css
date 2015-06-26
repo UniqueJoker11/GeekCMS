@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 布局 */
+#admin_top {
+	height: 55px;
+	margin: 0 auto;
+	min-width: 960px;
+}
+
+#admin_left {
+	left: 0;
+	top: 55px;
+	bottom: 0;
+	width: 180px;
+	background: RGB(238, 241, 248);
+	border-right: 1px #CCCCCC solid;
+	overflow: auto;
+}
+
+#admin_right {
+	background: #FFF;
+	right: 0;
+	bottom: 0;
+	top: 86px;
+	left: 181px;
+}
+
+#bread_crumb {
+	background: RGB(230, 236, 242);
+	top: 55px;
+	height: 30px;
+	right: 0;
+	left: 181px;
+	line-height: 30px;
+	font-size: 12px;
+	border-bottom: 1px #CCCCCC solid;
+}
+
+/* 一级导航菜单样式 */
+#admin_nav ul {
+	height: 55px;
+	font-size: 16px;
+}
+
+#admin_nav ul li {
+	width: 60px;
+	color: #FFF;
+	text-align: center;
+	float: left;
+	list-style-type: none;
+	height: 55px;
+	line-height: 55px;
+	cursor: pointer;
+	transition: background 0.3s;
+	-moz-transition: background 0.3s; /* Firefox 4 */
+	-webkit-transition: background 0.3s; /* Safari 和 Chrome */
+	-o-transition: background 0.3s; /* Opera */
+}
+#admin_nav ul li:hover{
+	background-color: #1874CD!important;
+}
+.nav_active{
+	background-color: #1874CD!important;
+}
+
+/* 登录的用户信息 */
+#admin_info {
+	width: 230px;
+	height: 25px;
+	margin: 10px;
+}
+
+/* 皮肤选择器 */
+#admin_face {
+	right: 5px;
+	top: 20px;
+	cursor: pointer;
+	background: url(images/admin_face.gif);
+	width: 15px;
+	height: 15px;
+}
+
+#admin_face:hover {
+	border: 1px blue solid;
+}
+
+/* 二级导航 */
+.menu_content {
+	font-size: 14px;
+	color: #333;
+	height: 100%;
+}
+
+.menu_content ul li {
+	list-style-type: none;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #CCCCCC;
+	cursor: pointer;
+	text-align: center;
+}
+
+.menu_content ul li:hover {
+	background-color: #E0EEEE;
+}
+
+.menu_content i {
+	font-size: 16px;
+	width: 16px;
+	margin-left: -10px;
+}
+
+.menu_title {
+	font-size: 18px;
+	margin: 0px auto;
+	height: 65px;
+	text-align: center;
+	background: #FCFCFC
+}
+
+.menu_line {
+	border-bottom: 1px #999 solid;
+	margin: 0;
+}
+/* 字体图标样式定义 */
+.menu_title i {
+	font-size: 40px;
+}
+
+.menu_title p {
+	font-size: 14px;
+}
+
+/* 面包屑导航 */
+.bread_crumb_menu li {
+	display: inline-block;
+	margin-left: 10px;
+	float:left;
+}
+
+.bread_crumb_menu li i {
+	font-size: 14px
+}
+
+.bread_crumb_menu .bc_line {
+	font-size: 12px;
+	color: #666;
+}
+
+/* 内容 */
+.admin_content {
+	height: 100%;
+	min-width: 550px;
+	overflow: auto;
+}
+
+.content {
+	margin: 5px;
+	font-size: 12px;
+	height: 100%;
+	position: relative;
+}
+
+.tab_content {
+	height: 100%;
+}
+
+.tab_bar {
+	background: RGB(199, 237, 233);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#efefef));
+	background: -moz-linear-gradient(center top, rgb(255, 255, 255),
+		rgb(239, 239, 239)) repeat scroll 0% 0% transparent;
+	border: 1px solid #CCC;
+	height: 35px;
+	line-height: 35px;
+}
+
+.tab_bar ul {
+	display: inline-block;
+}
+
+.tab_bar ul li {
+	display: inline-block;
+	padding: 0px 20px;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.tab_index {
+	background: #FFF;
+	border-bottom: 1px solid #FFF;
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	position: relative;
+	left: -1px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#efefef),
+		to(#fff));
+}
+
+.tab_item {
+	padding: 5px;
+	padding-top: 10px;
+	border: 1px solid #CCC;
+	border-top: none;
+	display: none;
+	position: relative;
+}
+
+.tab_show {
+	display: block;
+}
+/**文章发布状态*/
+.publish_state{
+	color:green
+}
+.unpublish_state{
+	color:#999;
+}
+/* tab的按钮 */
+.btn_tabbar {
+	display: inline-block;
+	float: right;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+
+/* 【内容区域】高用户体验样式 */

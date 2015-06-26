@@ -1,0 +1,84 @@
+<div class="content">
+	<div class="tab_bar">
+		<ul>
+			<li class="tab_index" onclick="setTabContent(this);">编辑文章</li>
+		</ul>
+		 <button class="btn_tabbar submit_it" onclick="mySubmitForm(this);" return="article/list.do?currentPageNo=1">保 存</button>
+	</div>
+	
+	
+	<form id="myForm" action="article/update.do" method="post">
+	<input name="id" type="hidden" value="${article.id?c}" />
+	<input name="views" type="hidden" value="${article.views?c}" />
+	<div class="tab_content">
+		<div class="tab_item tab_show"> 
+			<table class="table_for_add">
+				<tbody>
+					<tr class="rowBgColor">
+						<th width="140">所属栏目：</th>
+						<td>
+							<select id="parentid" class="select_for_add" name="pid">
+		 				 	 	<option value="0" disabled="disabled"> -------- 顶级栏目 -------- </option>
+								<#include "/common/channelSelect.html" />
+					  			<@channelTree id = 0 node = -1/>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>文章标题： </th>
+						<td><input class="input_for_add" name="title" type="text" value="${article.title!}" /></td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>文章图标： </th>
+						<td><input class="input_for_add" name="url" type="text" value="${article.url!}"  /></td>
+					</tr>
+					<tr>
+				    	<th>文章内容：</th>
+						<td></td>
+					</tr>
+				    <tr>
+						<td colspan="2">
+							<script type="text/plain" id="mushroomeditor" name="content">${article.content!}</script>
+						</td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>文章关键字：</th>
+						<td><input class="input_for_add" name="keywords" type="text" value="${article.keywords!}"  /></td>
+					</tr>
+					<tr>
+						<th>文章描述：</th>
+						<td><textarea class="textarea_for_add" name="description">${article.description!}</textarea></td>
+					</tr> 
+					<tr class="rowBgColor">
+					<th>文章作者：</th>
+						<td><input class="input_for_add" name="author" type="text" value="${article.author!}" /></td>
+					</tr> 
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</form> 
+</div>
+
+<script type="text/javascript">
+$(function(){
+	if(window.editor !=null){
+		window.editor.destroy();
+	}
+	window.editor = new UE.ui.Editor();
+	window.editor.render("mushroomeditor");
+	window.editor.ready(function(){
+		$("#title").focus();//纠正显示
+	});
+});
+
+function mySubmitForm(obj){
+ 	window.editor.sync();//手动提交需要手动同步编辑器数据 
+	submitActionForm(obj);
+} 
+
+
+//设置栏目ID
+var pid = '${article.pid}';
+$("#parentid").attr('value',pid);
+</script>

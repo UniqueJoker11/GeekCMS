@@ -1,0 +1,22 @@
+﻿ 
+/*********图片切换 css定义***********/
+
+.sub_box{width:660px; height:250px; float:left; position:relative; overflow:hidden; }
+.sub_box img{border:none; width:660px; height:250px;}
+#bd1lfimg{position:relative; width:660px; height:250px; overflow:hidden;}
+#bd1lfimg div{width:100000px; margin-left:-4px;}
+#bd1lfimg dl{width:660px; height:250px; position:relative; overflow:hidden; float:left;}
+#bd1lfimg dt{width:660px; height:250px; position:absolute; left:0px; top:0px;}
+#bd1lfimg dd{width:620px; height:25px;  background:#68ad40; filter:alpha(Opacity=70); Opacity:0.7; position:absolute; left:0px; bottom:0px; padding:0 20px;}
+#bd1lfimg dd a{ color:#FFF; text-decoration:none; line-height: 25px;}
+#bd1lfimg dd a:hover{text-decoration:none; color:#000;}
+#bd1lfimg dd tt{ }
+#bd1lfimg dd tt a:hover{}
+
+.sub_nav{width:660px; height:25px; bottom:0px; position:absolute; color:#999999; z-index:200;}
+.sub_no{height:25px; float:right;}
+.sub_no li{display:block; width:25px; height:25px; float:left; overflow:hidden; line-height:25px; vertical-align:middle; text-align:center; background:#4c8c2c; filter:alpha(Opacity=70); Opacity:0.7; font-family:Arial; font-size:11px; color:#FFF; cursor:pointer;}
+.sub_no li.show{background:#ffffff; color:#000000;}
+
+/*********图片切换 css定义***********/
+

@@ -1,0 +1,9 @@
+<div class="menu_title">${menu.icon!} <p>${menu.name!}管理</p></div>
+<div class="menu_line"></div>
+<div class="menu_content">
+    <ul>
+    	<#list childmenus as menu>
+    		<li onClick="addContent(this)" url="${menu.url!}">${menu.icon!} ${menu.name}</li>
+    	</#list>
+    </ul>
+</div>

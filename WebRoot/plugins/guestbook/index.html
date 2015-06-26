@@ -1,0 +1,57 @@
+<!-- 华丽的分割线 -->
+<div id="messageBox" style="position:fixed !important;right:0px; bottom:-15px; margin-bottom:0px; width:280px; height:250px; z-index:1000;">
+	<div style="width:280px;">
+    	<div class="title">
+        	<div class="title_text">留言板</div>
+        </div>
+        <div class="content">
+        	<div class="content_innner">  
+			<form action="${url}/plugin" method="post">
+				<input type="hidden" name="plugin" value="guestbook" />
+				<input type="hidden" name="method" value="action" />
+				<table>
+					<tr>
+						<td colspan="2"><textarea name="content" class="gcontent"></textarea></td>
+					</tr>
+					<tr class="h28">
+						<th>昵称: </th><td><input name="nickname" value="小灰灰"/></td>
+					</tr>
+			 		<tr class="h28">
+						<th>验证: </th><td><input name="authcode" class="authcode" onfocus="showCode();"/><img id="randcode" class="randcode"/></td>
+					</tr> 
+				 	<tr class="h28">
+				   		<td colspan="2" align="center">
+				   		<button class="gbtn">提交留言</button>
+		                </td>
+				 	</tr>
+				</table>
+			</form>
+            </div>
+        </div>
+    </div>
+    <div id="">
+    
+    
+    </div>
+</div>
+<script type="text/javascript">
+function showCode(){
+	var randcode = document.getElementById("randcode");
+	randcode.src = "${url}/authcode.do?r="+Math.random();
+}
+
+var isShow = false;
+function hideMessageBox(){
+	if(isShow){
+		$("#messageBox").animate({right:"-250px"},300);
+		isShow = false;
+	}
+}
+function showMessageBox(){
+ 	if(!isShow){
+		$("#messageBox").animate({right:"0px"},300);
+		isShow = true;
+	}
+}
+</script>
+<!-- 华丽的分割线 -->

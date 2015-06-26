@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title><@spring.message "admin.system.title"/></title>
+<link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/animation.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.validator.css">
+<script type="text/javascript"
+	src="${url}/public/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/jquery.validator.js"></script>
+<script type="text/javascript" src="js/zh_CN.js"></script>
+<script type="text/javascript" src="js/core.js"></script>
+<script type="text/javascript" src="js/showtime.js"></script>
+<script type="text/javascript" src="js/handlebars-v1.3.0.js"></script>
+<script type="text/javascript">
+	window.UEDITOR_HOME_URL = "${url}/public/ueditor/";
+	window.BASE_URL = '${url}';
+</script>
+
+
+<script type="text/javascript" charset="utf-8"
+	src="${url}/public/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="${url}/public/ueditor/ueditor.all.js"></script>
+
+</head>
+
+<body>
+
+	<!-- 头部 高55px -->
+	<div id="admin_top" class="headBackground">
+		<div id="logo" class="fl">
+			<div>
+				<img src="images/logo.png">
+			</div>
+		</div>
+		<div id="admin_nav" class="fl">
+			<ul class="font_shadow">
+				<#list topmenus as menu>
+				<li url="childmenus.do?id=${menu.id?c}" index="${menu.url!}">${menu.name!}</li>
+				</#list>
+			</ul>
+		</div>
+		<div id="admin_info" class="fr">
+			当前用户: ${loginnickname!} &nbsp;[<a href="logout.do">注销</a>] &nbsp;<a
+				href="${url}" target="_blank">[网站首页]</a> <br />
+			<div id="index_time">loading...</div>
+
+
+		</div>
+		<!-- 动态加载CSS -->
+		<div id="admin_face" class="pa"
+			onclick="addStyle('css/themes/blue.css')"></div>
+	</div>
+
+	<!-- 二级导航 -->
+	<div id="admin_left" class="pa">
+		<div class="admin_menu"></div>
+	</div>
+	<div id="bread_crumb" class="pa">
+		<ul class="bread_crumb_menu">
+			<li><i class="fa fa-home"></i> Home</li>
+			<li class="bc_line"><i class="fa fa-chevron-right"></i></li>
+			<li>内容管理</li>
+			<li class="bc_line"><i class="fa fa-chevron-right"></i></li>
+			<li>系统管理</li>
+		</ul>
+	</div>
+	<!-- 内容区 -->
+	<div id="admin_right" class="pa">
+		<div class="admin_content" onscroll="setScroll(this)"></div>
+		<div class="loading_panel"></div>
+	</div>
+
+
+
+</body>
+</html>
+<script type="text/javascript">
+	var editor = null;
+	//初始化菜单
+	$(function() {
+		$('.admin_menu').load(uniqueUrl('childmenus.do?id=2'));
+		$(".loading_panel").show();
+		$('.admin_content').load('systeminfo.do', function() {
+			$(".loading_panel").hide();
+
+		});
+		//更换导航的样式特点
+		$(".font_shadow").find("li").bind("click",function(e){
+			$(this).addClass("nav_active").siblings().removeClass("nav_active");
+		}).eq("1").trigger("click");
+	});
+//更改当前的页面主题
+	function addStyle(stylePath) {
+		var container = document.getElementsByTagName("head")[0];
+		var addStyle = document.createElement("link");
+		addStyle.rel = "stylesheet";
+		addStyle.type = "text/css";
+		addStyle.media = "screen";
+		addStyle.href = stylePath;
+		container.appendChild(addStyle);
+	}
+
+</script>
+<script type="text/javascript">
+	/* 选项卡滚动固定效果 */
+	function setScroll(dom) {
+		if (dom.scrollTop >= 5) {
+			$(".tab_bar").css("position", "fixed");
+			$(".tab_bar").css("z-index", "1000000");
+			$(".tab_bar").css("top", "85px");
+			$(".tab_bar").css("right", "20px");
+			$(".tab_bar").css("left",
+					dom.getBoundingClientRect().left + 5 + "px");
+
+		} else {
+			$(".tab_bar").css("position", "static");
+		}
+	}
+
+	/* 选项卡内容切换 */
+	function setTabContent(li) {
+		var index = $(li).index();
+		$(".tab_bar ul li").each(function() {
+			$(this).removeClass("tab_index");
+		});
+		$(li).addClass("tab_index");
+
+		var item = $(".tab_content").children(".tab_item")[index];
+
+		$(".tab_content").children(".tab_item").each(function() {
+			this.style.display = "none";
+		});
+
+		item.style.display = "block";
+
+	}
+</script>

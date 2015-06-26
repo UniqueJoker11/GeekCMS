@@ -1,0 +1,85 @@
+<div class="content">
+	<div class="tab_bar">
+		<ul>
+			<li class="tab_index" onclick="setTabContent(this);">文章列表</li>
+		</ul>
+		<button class="btn_tabbar" action="article/publish.do" onclick="refreshContentByElement(this);">新建文章</button>
+	</div>
+	
+	<div class="tab_content">
+		<div class="tab_item tab_show">
+		    <div style="padding-bottom:10px; line-height:40px; vertical-align: top; float:right; overflow: auto;">
+				关键字：<input class="input_for_add" />
+				<button action="article/publish.do" onclick="refreshContentByElement(this);">查 询</button>
+			</div> 
+			<table class="table_for_list">
+				<thead>
+				   <tr> 
+			        <th width="30" class="quanxuan" onclick="allCheck();">全选</th>
+			        <th>文章名称</th>
+			        <th width="60">栏目名称</th>
+			        <th>作者</th>
+			        <th>流量</th>
+			        <th width="140">发布时间</th>
+			        <th width="38">状态</th>
+			        <th width="60">操作</th>
+			      </tr>
+				</thead>
+			    <tbody>
+			   
+				  <#list page.getData() as x>
+					<tr>
+				      	<td class="checkbox"><input type="checkbox" value="${x.id?c}" /></td>
+				        <td><a href="${url}${encoder('/cms?p=${x.ctype!}&type=${x.module!}&time=${x.time?string("yyyyMMdd")}&id=${x.id?c}')}" target="_blank">${x.title!}</a></td>
+				        <td>${x.cname!}</td>
+				        <td>${x.author!}</td>
+				        <td>${x.views?c}</td>
+				        <td><#if x.time?exists>${x.time?string("yyyy-MM-dd HH:mm:ss")}<#else>时间异常</#if></td>
+				        <td id="tac_${x.id}" class="tac" onclick="editPublishAticleState('tac_${x.id}','${x.id}')">
+				        <#if x.status == 1>
+				        	<b class="publish_state"><i class="fa fa-check-circle"></i></b>
+				        <#else>
+				        	<b class="unpublish_state"><i class="fa fa-check-circle"></i></b>
+				        </#if>
+				        </td>
+				        <td class="tac" style="font-size:20px;color:blue;">
+		 				    <a href="#" action="article/edit.do?id=${x.id?c}" onclick="refreshContentByElement(this);"><i class="fa fa-pencil-square-o"></i></a>
+					        &nbsp;<a href="#" action="article/delete.do?rid=${x.id?c}" return="article/list.do?currentPageNo=${page.currentPageNo?c}" onclick="deleteById(this);"><i class="fa fa-trash-o"></i></a>
+					    
+				    </tr>
+				  </#list>
+				</tbody>
+			</table>
+		  <#include "/common/_page.html" />
+		  <@paginate currentPage=page.currentPageNo totalPage=page.totalPages actionUrl="article/list.do" delUrl="article/delete.do" />
+		</div>
+	</div>
+</div>
+<script>
+//判断问斩是否需要发布
+function editPublishAticleState(obj,id){
+	var currentObj=$("#"+obj).find("b");
+	//弹出修改文章发布状态的对话框
+	zoom.showChooseItemDialog("","确定要修改文章的发布状态吗？","发布","取消发布",function(){
+		var aticle=new Object();
+		aticle.id=id;
+		aticle.status=1;
+		$.post("aticle/update.do",aticle,function(data){
+			if(data.status){
+				currentObj.removeClass("unpublish_state").addClass("publish_state");
+			}
+		})
+		zoom.closeChooseItemDialog();
+	},function(){
+		var aticle=new Object();
+		aticle.id=id;
+		aticle.status=0;
+		$.post("aticle/update.do",aticle,function(data){
+			if(data.status){
+				currentObj.removeClass("publish_state").addClass("unpublish_state");
+			}
+		})
+		zoom.closeChooseItemDialog();
+	});
+}
+</script>

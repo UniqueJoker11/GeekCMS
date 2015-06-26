@@ -1,0 +1,36 @@
+<div class="content">
+ 	<h2>友情链接管理</h2>
+	<hr class="hrs"/>
+	<button action="/plugin?plugin=flink&method=add" onclick="refreshContentByElement(this);">添加友情链接</button>
+	<div class="hrs"></div>
+	<table class="table_for_list">
+		<thead>
+		 <tr> 
+	        <th width="30" class="quanxuan" onclick="allCheck();">全选</th>
+	        <th width="140">网站名称</th>
+	        <th width="250">URL地址</th>
+	        <th>描述</th> 
+	        <th width="40">访问量</th>
+	        <th width="80">操作</th>
+	      </tr>
+		</thead>
+	    <tbody>
+	     
+		  <#list page.getData() as x>
+			<tr>
+		      	<td class="checkbox"><input type="checkbox" value="${x.id?c}" /></td>
+		        <td>${x.name!}</td>
+		        <td>${x.url!}</td>
+		        <td>${x.description!}</td>
+		        <td>${x.views?c}</td>
+		        <td>
+		         <a href="#" action="/plugin?plugin=flink&method=edit&id=${x.id?c}" onclick="refreshContentByElement(this);">编辑</a>
+			  	 | <a href="#" action="/plugin?plugin=flink&method=delete&rid=${x.id?c}" return="/plugin?plugin=flink&method=list" onclick="deleteById(this);">删除</a>
+		    	</td>
+		    </tr>
+		  </#list>
+		</tbody>
+	</table>
+  <#include "/flink/_page.html" />
+  <@linksPage currentPage=page.currentPageNo totalPage=page.totalPages />
+</div>

@@ -1,0 +1,35 @@
+<div class="content">
+	<h2>添加友情链接</h2>
+	<hr class="hrs"/>
+	<form id="myForm" action="/plugin?plugin=flink&method=save" method="post">
+	<table class="table_for_add">
+		<tbody> 
+			<tr class="rowBgColor">
+				<th width="140">网站名称： </th>
+				<td align="left">
+					<input class="input_for_add" id="name" name="name" type="text" placeholder="请填写网站名称。" />
+					<span id="Validform_checktip"></span>
+				</td>
+			</tr>
+			<tr>
+				<th>URL地址： </th>
+				<td><input class="input_for_add" name="url" type="text" placeholder="请填写URL地址。"/></td>
+			</tr>
+			<tr class="rowBgColor">
+				<th>网站描述：</th>
+				<td><textarea class="textarea_for_add" name="description"></textarea> </td>
+			</tr>
+			<tr class="rowBgColor">
+				 
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	<div class="center textcenter foot">
+		<button onclick="submitActionForm(this);" return="/plugin?plugin=flink&method=list&currentPageNo=1">提交 </button>
+		<button onclick="resetActionForm();">重置 </button>
+	</div>
+</div>
+<script type="text/javascript">
+ 
+</script>

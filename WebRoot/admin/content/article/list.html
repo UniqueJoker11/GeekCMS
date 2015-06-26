@@ -1,0 +1,97 @@
+<div class="" style="position: absolute; left: 5px; top:5px; bottom:5px; right:5px; min-width:700px; "> 
+ 
+    <div style="padding-bottom:10px; line-height:40px; vertical-align: top; float:right; overflow: auto; position: absolute;left:0; right:0; height: 80px;">
+	     <button action="content/article/add.html" onclick="refreshContentByElement(this);">新建文章</button>
+  
+		 关键字：<input class="input_for_add" />
+		 <button action="article/publish.do" onclick="refreshContentByElement(this);">查 询</button>
+    </div>
+	<div class="table_content" style="overflow: auto;  position: absolute; left:0; right:0; top:60px; bottom:35px; 
+	    border: 1px solid #e5e5e5;">
+		<table class="table_for_list">
+			<thead>
+			   <tr> 
+		        <th width="30" class="quanxuan" onclick="allCheck();">全选</th>
+		        <th>文章名称</th>
+		        <th width="60">栏目名称</th>
+		        <th>作者</th>
+		        <th>流量</th>
+		        <th width="140">发布时间</th>
+		        <th width="38">状态</th>
+		        <th width="60">操作</th>
+		      </tr>
+			</thead>
+		    <tbody id="list-container">
+		     	
+			</tbody>
+		</table>
+		
+	</div>		
+	<div style="position: absolute; left: 0px; right:0; height: 30px; bottom:0; overflow: hidden; ">
+		 
+	    <div style="float:left;margin-left:5px;">
+			<button title="全选" onclick="allCheck();">全选 </button>
+			<button title="反选" onclick="allRecheck();">反选 </button>
+			<button title="删除" action="${delUrl}" return=" " onclick="deleteCheck(this);"><i class="fa fa-trash-o"></i></button>
+		</div>
+		<div style="float: right;">
+			每页: <select  style="height: 27px; width: 50px;" >
+				<option>20</option>
+				<option>40</option>
+				<option>60</option>
+				<option>80</option>
+				<option>100</option>
+			</select> 条 
+			
+			<button title="上一页"><i class="fa fa-step-backward"></i></button>
+			<button title="下一页"><i class="fa fa-step-forward"></i></button>
+			<input style="height: 27px; width: 50px;"  /> / 12
+			<button title="GO"><i class="fa fa-arrow-circle-right"></i></button>
+			
+    	</div>
+    </div>
+    
+    
+</div>
+<script type="text/javascript">
+$.ajax({
+	url: "api/article.do",
+	data: "currentPageNo=1",
+	type: "get",
+	dataType: "json",
+	success: function(data){ 
+		  $.each(data.data,function(i, c){
+				var source   = $("#article-template").html();
+				var template = Handlebars.compile(source);
+				var html     = template(c);
+				$('#list-container').append(html);
+          }); 
+	} 
+	
+});
+</script>
+
+
+<script id="article-template" type="text/x-handlebars-template">
+<tr>
+   <td class="checkbox"><input type="checkbox" value="{{x.id}}" /></td>
+    <td><a href="{{url}}" target="_blank">{{title}}</a></td>
+    <td>{{cname}}</td>
+    <td>{{author}}</td>
+    <td>{{views}}</td>
+    <td>{{time}}</td>
+    <td class="tac">
+        {{#if status}}
+	    	<b style="color:green;"><i class="fa fa-check-circle"></i></b>
+    	{{else}}
+    		<b style="color:#999;"><i class="fa fa-check-circle"></i></b>
+    	{{/if}}
+    </td>
+    <td class="tac" style="font-size:20px;color:blue;">
+   <a href="#" action="article/edit.do?id={{id}}" param="" onclick="refreshContentByElement(this);"><i class="fa fa-pencil-square-o"></i></a>
+     &nbsp;<a href="#" action="article/delete.do?rid={{id}}" return="article/list.do?currentPageNo={{currentPageNo}}" onclick="deleteById(this);"><i class="fa fa-trash-o"></i></a>
+ 
+</tr>
+</script>
+
+

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="${current.description!}">
+  	<meta name="keywords" content="${current.keywords!}">
+    <meta name="author" content="marker">
+	<title>${config.title}</title>
+	<link href="lib/bootstrap3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="lib/bootstrap3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <!--#include file="common/js.html"-->
+</head>
+
+<body>
+
+<!--#include file="common/header.html"-->
+
+<div class="banner">
+	<div class="container">
+        <h1>MRCMS</h1>
+    	<p>快来看呀，强大的 建站系统框架终结者 为快速、简单、高效的 Web网站建设解决方案。</p>
+        <p>
+        	<a href="/about.html"><div class="btn_main">现在开始学习</div></a>
+        </p>
+        <div class="dependence">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_b" style="line-height: 12px; float:right;">
+<img src="http://bdimg.share.baidu.com/static/images/type-button-1.jpg?cdnversion=20120831" />
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=647438" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END --> version 2.0
+        </div>
+    </div>
+</div> 
+
+<div class="container" style="margin: 10px auto;">
+	<div class="content1">
+		<h1>介绍蘑菇建站系统特点</h1>
+        <p>选择使用蘑菇建站系统的理由？来看看吧！</p>
+	</div>
+    <div class="row"> 
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/gaoxingneng.png" /></div>
+        	<h3>高性能</h3>
+            <p>
+            	采用高性能的Spring3.2作为核心框架，Spring提供的Ioc容器可以方便的管理各种组件(Commponement)、服务(Service)、数据库操作对象(Dao)等对象，并集成数据库连接池(c3p0)，以及使用ThreadLocal线程数据对象(状态)绑定技术。
+            </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/kekuozhan.png" /></div>
+          <h3>可扩展</h3>
+          <p>
+          	基于Apache Felix OSGI FrameWork构建的插件系统，遵循MRCMS插件文档规范，可以对系统进行功能上的扩展(支持REST)。通过SpringMVC提供的声明式注解进行后台功能的扩展。同时开发者还可以对系统标签库扩展。
+          </p>
+        </div>
+      </div> 
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/fenbushi.png" /></div>
+          <h3>分布式</h3>
+          <p>
+          	目前还没有使用太多分布式技术，暂时只是实现了Nginx反向代理服务器集群。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/html.png" /></div>
+          <h3>模板设计</h3>
+          <p>
+          	通过学习简单的HTML标签以及模板引擎提供的标签库，您可以完美驾驭此内容管理系统。插件系统提供了一系列指令(Directive)导入需要的html片段。
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/moxing.png" /></div>
+        	<h3>模型设计</h3>
+            <p>
+                                       对不同的产品展示界面我们可以自己设计不同的对象模型表示改产品。
+                                       在内容模型中我们还可以通过ActionAcontext类来获取请求对象和响应对象，使系统更加灵活多样。
+            </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="introduce_card">
+          <div class="icon"><img src="images/chajian.png" /></div>
+          <h3>插件设计</h3>
+          <p>
+          	Apache Felix 的OSGI框架实现功能热部署。我们可以根据不同需求，开发插件来满足客户的需求。目前我们开发了留言薄、友情链接等插件，并且开放源码。
+          </p>
+        </div>
+      </div> 
+      
+    </div>
+</div>
+
+<hr/>
+
+<div class="container" style="margin: 20px auto; ">
+	<div class="content1">
+		<h1>蘑菇建站系统构建的网站</h1>
+        <p>这么多网站都是采用蘑菇建站系统呢，这是为什么呢？</p>
+	</div>
+    <div class="row">
+    	<div class="col-md-3">
+        	<div class="website_card">
+          		<img src="images/kekuozhan.png" />
+            </div>
+    	</div>
+        <div class="col-md-3">
+    		<div class="website_card">
+          		<img src="images/kekuozhan.png" />
+            </div>
+        </div>
+        <div class="col-md-3">
+    		<div class="website_card">
+          		<img src="images/kekuozhan.png" />
+            </div>
+        </div>
+        <div class="col-md-3">
+    		<div class="website_card">
+          		<img src="images/kekuozhan.png" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--#include file="common/footer.html"-->
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<div class="content">
+	<div class="tab_bar">
+		<ul>
+			<li class="tab_index" onclick="setTabContent(this);"><h3>基本信息</h3></li>
+			<li onclick="setTabContent(this);"><h3>主题设置</h3></li>
+		</ul>
+		<button class="btn_tabbar" onclick="submitActionForm(this);" return="system/siteinfo.do">保 存</button>
+	</div>
+	<form id="myForm" action="system/saveinfo.do" method="post">
+    <div class="tab_content">
+		<div class="tab_item tab_show">
+			<table class="table_for_add">
+				<tbody>
+					<tr class="rowBgColor">
+						<th width="140">站点名称：</th>
+						<td width="280"><input class="input_for_add" name="config.title" type="text" value="${config.title}" /></td>
+						<td> </td>
+					</tr>
+					<tr>
+						<th>站点地址：</th>
+						<td><input class="input_for_add" name="config.url" type="text" value="${config.url}"  /></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>网站关键字：</th>
+						<td><input class="input_for_add" name="config.keywords" type="text" value="${config.keywords}"  /></td>
+						<td> </td>
+					</tr>
+					<tr>
+						<th>网站描述：</th>
+						<td><textarea class="textarea_for_add" name="config.description" >${config.description}</textarea>
+						</td>
+						<td><span id="name_status"></span></td>
+					</tr>	
+					<tr class="rowBgColor">
+						<th>站长邮箱：</th>
+						<td><input class="input_for_add" name="config.mastermail" type="text" value="${config.mastermail}" /></td>
+						<td><span id="name_status"></span></td>
+					</tr>	
+					<tr>
+						<th>版权信息：</th>
+						<td><input class="input_for_add" name="config.copyright" type="text" value="${config.copyright}"/></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>ICP备案号：</th>
+						<td><input class="input_for_add" name="config.icp" type="text" value="${config.icp}"/></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+				</tbody>
+			</table>   
+		</div>
+		<div class="tab_item"> 
+			<table class="table_for_add"> 
+				<tbody>
+					<tr class="rowBgColor">
+						<th width="140">主页地址：</th>
+						<td><input class="input_for_add" name="config.index_page" type="text" value="${config.index_page!}" /></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr>
+						<th>异常模板：</th>
+						<td><input class="input_for_add" name="config.error_page" type="text" value="${config.error_page}"  /></td>
+						<td><span id="name_status"></span></td>
+					</tr>			
+					<tr class="rowBgColor">
+						<th>主题目录：</th>
+						<td><input class="input_for_add" name="config.themes_path" type="text" value="${config.themes_path}"  /></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr>
+						<th>主题缓存：</th>
+						<td><input class="input_for_add" name="config.themes_cache" type="text" value="${config.themes_cache}"  /></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>开发模式：</th>
+						<td>
+							<#if config.dev_mode == 'true'>
+							<input name="config.dev_mode" type="radio" value="true" checked="checked" />&nbsp;是&nbsp; &nbsp;
+							<input name="config.dev_mode" type="radio" value="false" />&nbsp;否
+							<#else>
+							<input name="config.dev_mode" type="radio" value="true" />&nbsp;是&nbsp; &nbsp;
+							<input name="config.dev_mode" type="radio" value="false" checked="checked" />&nbsp;否
+							</#if>
+						 </td>
+						<td><span id="name_status"></span></td>
+					</tr>
+				 	<tr>
+						<th>页面压缩(GZIP)：</th>
+						<td>
+							<#if config.gzip == 'true'>
+							<input name="config.gzip" type="radio" value="true" checked="checked" />&nbsp;是&nbsp; &nbsp;
+							<input name="config.gzip" type="radio" value="false" />&nbsp;否
+							<#else>
+							<input name="config.gzip" type="radio" value="true" />&nbsp;是&nbsp; &nbsp;
+							<input name="config.gzip" type="radio" value="false" checked="checked" />&nbsp;否
+							</#if>
+						 </td>
+						<td><span id="name_status"></span></td>
+					</tr>
+					<tr class="rowBgColor">
+						<th>产品秘钥：</th>
+						<td><input class="input_for_add" type="text" value="${config.secret_key!}" disabled="disabled" /></td>
+						<td><span id="name_status"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+	</form>  
+</div>

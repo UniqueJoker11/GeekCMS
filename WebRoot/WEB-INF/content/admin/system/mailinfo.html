@@ -1,0 +1,27 @@
+<div class="content">
+	<h2>邮件配置</h2>
+	<hr class="hrs"/>
+</div>
+<div class="content">
+	<form id="myForm" action="system/savemailinfo.do" method="post"> 
+	<table class="table_for_add">
+		<tbody>
+			<tr>
+				<th width="140">栏目地址：</th>
+				<td><input class="input_for_add" name="url.channel" type="text" value=" " /></td>
+				<td width="30"><span id="name_status"></span></td>
+			</tr>
+			<tr>
+				<th>内容地址： </th>
+				<td><input class="input_for_add" name="url.content" value=" " /></td>
+				<td><span id="scope_status"></span></td>
+			</tr>
+ 
+		</tbody>
+	</table>
+	</form>
+	<div class="center textcenter foot">
+		<button onclick="submitActionForm(this);" return="system/mailinfo.do">更新 </button>
+		<button onclick="resetActionForm();">重置 </button>
+	</div>
+</div>
